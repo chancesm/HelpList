@@ -1,0 +1,7 @@
+#hlist, #plist {
+    list-style: none;
+    padding-left: 0;
+}
+.card {
+    width: 15rem;
+}

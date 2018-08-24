@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="login.css">
+        <title>Help List</title>
+    </head>
+    <body class="text-center">
+        <form class="form-signin">
+            <h1 class="h3 mb-3 font-weight-normal">Registration Form</h1>
+
+            <label for="netid" class="sr-only">First Name</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">BYU NetID</div>
+                </div>
+                <input type="text" class="form-control" id="netid" placeholder="NetID" required autofocus>
+            </div>
+
+            <label for="firstName" class="sr-only">First Name</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">First Name</div>
+                </div>
+                <input type="text" class="form-control" id="firstName" placeholder="First" required>
+            </div>
+
+            <label for="lastName" class="sr-only">Last Name</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Last Name</div>
+                </div>
+                <input type="text" class="form-control" id="lastName" placeholder="Last" required>
+            </div>
+
+            <label for="displayName" class="sr-only">Display Name</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Display Name</div>
+                </div>
+                <input type="text" class="form-control" id="displayName" placeholder="Display Name" required>
+            </div>
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Password</div>
+                </div>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+            </div>
+      
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+            
+        </form>
+    </body>
+</html>

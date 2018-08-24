@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="login.css">
+        <title>Help List</title>
+    </head>
+    <body class="text-center">
+        <form class="form-signin" action="/auth/login" method="POST">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="netid" class="sr-only">BYU NetID</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">BYU NetID</div>
+                </div>
+                <input type="text" class="form-control" id="netid" name="netid" placeholder="NetID" required autofocus>
+            </div>
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Password</div>
+                </div>
+                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" required>
+            </div>
+      
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+    <title>Help List</title>
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <div class="container-fluid">
+        <div class="row">
+            <p id="instructions" class="ml-auto mr-auto col-xs-8 text-center">Click the Button at the top of a list to be added to it. Click again to be removed.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div id="pass" class="ml-auto col-sm-6 col-md-4 col-xs-12 justify-content-center">
+                <h2>Pass-Off List <button onclick="addpass" type="button" class="btn btn-outline-secondary">+</button></h2>
+                <ul id="plist">
+                <% for(let i=0,len=pass.length;i<len;i++) { let current = pass[i]%>
+                    <li>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><%=current.displayName%></h5>
+                                <h6 class="card-subtitle text-muted">Room <%=current.room%></h6>
+                                <div class="card-text">
+                                    <%=current.problem%>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <%}%>
+                </ul>
+            </div>
+            <div id="help" class="mr-auto col-sm-6 col-md-4 col-xs-12">
+                <h2>Help List <button onclick="addhelp" type="button" class="btn btn-outline-secondary">+</button></h2>
+                <ul id="hlist">
+                <% for(let i=0,len=help.length;i<len;i++) { let current = help[i]%>
+                    <li>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><%=current.displayName%></h5>
+                                <h6 class="card-subtitle text-muted">Room <%=current.room%></h6>
+                                <div class="card-text">
+                                    <%=current.problem%>
+                                </div>
+                            </div>
+                        </div>
+                    </li>                              
+                <%}%>        
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <%- include('partials/foot') %>
+    <script>
+    var socket = io();
+    socket.emit('test',"THIS IS A TEST MESSAGE")
+    socket.on('list update', (data) => {
+        console.log(data)
+    })
+    function addhelp() {
+        socket.emit('addhelp')
+    }
+    function addpass() {
+        socket.emit('addpass')
+    }
+
+    </script>
+</body>
+</html>
