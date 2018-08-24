@@ -57,14 +57,14 @@
     <script>
     var socket = io();
     socket.emit('test',"THIS IS A TEST MESSAGE")
-    socket.on('list update', (data) => {
+    socket.on('asdf', (data) => {
         console.log(data)
     })
     function addhelp() {
-        socket.emit('addhelp')
+        
     }
     function addpass() {
-        socket.emit('addpass')
+        
     }
 
     </script>

@@ -21,7 +21,7 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
     Promise.all([helplist.getHelpList(),helplist.getPassList()])
     .then(data => {
-        console.log(data)
+        // console.log(data)
         
         res.render('index',{user:1,help:data[0], pass:data[1]})
     })
@@ -33,30 +33,36 @@ app.get('/login', (req,res)=> {
 })
 app.post('/auth/login', (req,res) => {
     console.log(req.body);
-    res.json(req.body)
+    req.user=req.body
+    res.redirect('/')
 })
 
 app.get('/register', (req,res)=> {
+
     res.render('register')
 })
 app.post('/auth/register', (req,res) => {
     res.send('ahhhh')
 })
+app.get('/addHelp',(req,res)=>{
+    io.sockets.emit('asdf', {msg: 'IT WORKED!!!'}) //WORKS!!!
 
-    
-io.on('connection', (socket) => {
-    console.log('Successful socket connection')
-    socket.on('test', (data) => {
-        console.log(data)
-    })
-    socket.on('addhelp', data => {
-        console.log('Adding to Help List')
-    })
-    soocket.on('addpass', data => {
-        console.log('Adding to Pass List')
-    })
 })
+app.post('/addPass',(req,res)=>{
+    
+})
+    
+io.on('connection', socket=> {
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+        console.log('user disconnected');
+    });
+    socket.on('test', ({msg}) => {
+        console.log(msg)
+    })
 
+    io.emit('asdf',{msg:'asdfqwerzxcv'})
+});
 server.listen(3000, (e) => {
     if (e) console.log(e)
     console.log(`Server running`)
