@@ -56,8 +56,8 @@
     <%- include('partials/foot') %>
     <script>
     var socket = io();
-    socket.emit('test',"THIS IS A TEST MESSAGE")
-    socket.on('asdf', (data) => {
+    //socket.emit('test',"THIS IS A TEST MESSAGE")
+    socket.on('newlists', (data) => {
         console.log(data)
     })
     function addhelp() {

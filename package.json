@@ -5,21 +5,25 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "debug": "nodemon --inspect index.js"
+    "start": "node index.js",
+    "dev": "nodemon --inspect index.js",
+    "debug": "ndb"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "cas-authentication": "0.0.8",
+    "connect-session-sequelize": "^5.2.2",
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^4.38.0",
     "socket.io": "^2.1.1",
-    "sqlite": "^2.9.2"
+    "sqlite3": "^4.0.2"
   },
   "devDependencies": {
     "ndb": "^1.0.20",
